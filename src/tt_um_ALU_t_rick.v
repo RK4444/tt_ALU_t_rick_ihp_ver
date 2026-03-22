@@ -457,24 +457,24 @@ module tt_um_ALU_t_rick
       13'b0000000000001: n121_o = carryintermediateadd;
       default: n121_o = carryintermediateadd;
     endcase
+  /* ../tt_um_ALU_t_rick.vhdl:209:32  */
+  assign n124_o = muxoutput[3];
+  /* ../tt_um_ALU_t_rick.vhdl:209:48  */
+  assign n125_o = muxoutput[2];
   /* ../tt_um_ALU_t_rick.vhdl:209:36  */
-  assign n124_o = fulladder_sum[3];
-  /* ../tt_um_ALU_t_rick.vhdl:209:56  */
-  assign n125_o = fulladder_sum[2];
-  /* ../tt_um_ALU_t_rick.vhdl:209:40  */
   assign n126_o = n124_o | n125_o;
-  /* ../tt_um_ALU_t_rick.vhdl:209:76  */
-  assign n127_o = fulladder_sum[1];
-  /* ../tt_um_ALU_t_rick.vhdl:209:60  */
+  /* ../tt_um_ALU_t_rick.vhdl:209:64  */
+  assign n127_o = muxoutput[1];
+  /* ../tt_um_ALU_t_rick.vhdl:209:52  */
   assign n128_o = n126_o | n127_o;
-  /* ../tt_um_ALU_t_rick.vhdl:209:96  */
-  assign n129_o = fulladder_sum[0];
   /* ../tt_um_ALU_t_rick.vhdl:209:80  */
+  assign n129_o = muxoutput[0];
+  /* ../tt_um_ALU_t_rick.vhdl:209:68  */
   assign n130_o = n128_o | n129_o;
   /* ../tt_um_ALU_t_rick.vhdl:209:18  */
   assign n131_o = ~n130_o;
-  /* ../tt_um_ALU_t_rick.vhdl:210:31  */
-  assign n132_o = fulladder_sum[3];
+  /* ../tt_um_ALU_t_rick.vhdl:210:27  */
+  assign n132_o = muxoutput[3];
   /* ../tt_um_ALU_t_rick.vhdl:211:30  */
   assign n133_o = porta[3];
   /* ../tt_um_ALU_t_rick.vhdl:211:21  */

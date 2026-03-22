@@ -113,27 +113,25 @@ async def alu_test_logic_operations(dut):
     # Wait for three clock cycle to see the output values, nobody knows, why 3 and not two clock cycles...seems to be a cocotb error I guess, because vhdl simulation works finde
     await ClockCycles(dut.clk, 3)
 
-    # The following assersion is just an example of how to check the output values.
-    # Change it to match the actual expected output of your module:
-    assert dut.uo_out.value == int('10001010', 2) # Flags are irrelevant with logic operations, don't know how to set them to "don't care"
+    assert dut.uo_out.value == int('11001010', 2)
 
-    dut.uio_in.value = int('00000100', 2) # or output
+    dut.uio_in.value = int('01000100', 2) # or output
 
     await ClockCycles(dut.clk, 2)
 
-    assert dut.uo_out.value == int('10001011', 2) # Flags are irrelevant with logic operations, don't know how to set them to "don't care"
+    assert dut.uo_out.value == int('11001011', 2)
 
     dut.uio_in.value = int('00000110', 2) # xor output
 
     await ClockCycles(dut.clk, 2)
 
-    assert dut.uo_out.value == int('10000001', 2) # Flags are irrelevant with logic operations, don't know how to set them to "don't care"
+    assert dut.uo_out.value == int('10000001', 2)
     
     dut.uio_in.value = int('00001000', 2) # ones complement output
 
     await ClockCycles(dut.clk, 2)
 
-    assert dut.uo_out.value == int('10000101', 2) # Flags are irrelevant with logic operations, don't know how to set them to "don't care"
+    assert dut.uo_out.value == int('10000101', 2)
     
 
 @cocotb.test()
@@ -161,36 +159,28 @@ async def alu_test_shift_operations(dut):
     # Wait for three clock cycle to see the output values, nobody knows, why 3 and not two clock cycles...seems to be a cocotb error I guess, because vhdl simulation works finde
     await ClockCycles(dut.clk, 3)
 
-    # The following assersion is just an example of how to check the output values.
-    # Change it to match the actual expected output of your module:
-    assert dut.uo_out.value == int('01001100', 2) # Flags are irrelevant with logic operations, don't know how to set them to "don't care"
+    assert dut.uo_out.value == int('01001100', 2)
 
     dut.uio_in.value = int('00001100', 2) # shift left logic output
 
     # Wait for three clock cycle to see the output values, nobody knows, why 3 and not two clock cycles...seems to be a cocotb error I guess, because vhdl simulation works finde
     await ClockCycles(dut.clk, 2)
 
-    # The following assersion is just an example of how to check the output values.
-    # Change it to match the actual expected output of your module:
-    assert dut.uo_out.value == int('01000100', 2) # Flags are irrelevant with logic operations, don't know how to set them to "don't care"
+    assert dut.uo_out.value == int('00000100', 2)
 
     dut.uio_in.value = int('00001110', 2) # shift right arithmetic output
 
     # Wait for three clock cycle to see the output values, nobody knows, why 3 and not two clock cycles...seems to be a cocotb error I guess, because vhdl simulation works finde
     await ClockCycles(dut.clk, 2)
 
-    # The following assersion is just an example of how to check the output values.
-    # Change it to match the actual expected output of your module:
-    assert dut.uo_out.value == int('01001101', 2) # Flags are irrelevant with logic operations, don't know how to set them to "don't care"
+    assert dut.uo_out.value == int('01001101', 2)
 
     dut.uio_in.value = int('00010000', 2) # shift right logic output
 
     # Wait for three clock cycle to see the output values, nobody knows, why 3 and not two clock cycles...seems to be a cocotb error I guess, because vhdl simulation works finde
     await ClockCycles(dut.clk, 2)
 
-    # The following assersion is just an example of how to check the output values.
-    # Change it to match the actual expected output of your module:
-    assert dut.uo_out.value == int('01000101', 2) # Flags are irrelevant with logic operations, don't know how to set them to "don't care"
+    assert dut.uo_out.value == int('00000101', 2)
 
 @cocotb.test()
 async def alu_test_rotate_operations(dut):
@@ -217,33 +207,25 @@ async def alu_test_rotate_operations(dut):
     # Wait for three clock cycle to see the output values, nobody knows, why 3 and not two clock cycles...seems to be a cocotb error I guess, because vhdl simulation works finde
     await ClockCycles(dut.clk, 3)
 
-    # The following assersion is just an example of how to check the output values.
-    # Change it to match the actual expected output of your module:
-    assert dut.uo_out.value == int('01000101', 2) # Flags are irrelevant with logic operations, don't know how to set them to "don't care"
+    assert dut.uo_out.value == int('00000101', 2)
 
     dut.uio_in.value = int('00010100', 2) # rotate right output
 
     # Wait for three clock cycle to see the output values, nobody knows, why 3 and not two clock cycles...seems to be a cocotb error I guess, because vhdl simulation works finde
     await ClockCycles(dut.clk, 2)
 
-    # The following assersion is just an example of how to check the output values.
-    # Change it to match the actual expected output of your module:
-    assert dut.uo_out.value == int('01000101', 2) # Flags are irrelevant with logic operations, don't know how to set them to "don't care"
+    assert dut.uo_out.value == int('00000101', 2)
 
     dut.uio_in.value = int('00010110', 2) # rotate left through carry output
 
     # Wait for three clock cycle to see the output values, nobody knows, why 3 and not two clock cycles...seems to be a cocotb error I guess, because vhdl simulation works finde
     await ClockCycles(dut.clk, 2)
 
-    # The following assersion is just an example of how to check the output values.
-    # Change it to match the actual expected output of your module:
-    assert dut.uo_out.value == int('01010100', 2) #
+    assert dut.uo_out.value == int('00010100', 2) #
 
     dut.uio_in.value = int('00011000', 2) # rotate right through carry output
 
     # Wait for three clock cycle to see the output values, nobody knows, why 3 and not two clock cycles...seems to be a cocotb error I guess, because vhdl simulation works finde
     await ClockCycles(dut.clk, 2)
 
-    # The following assersion is just an example of how to check the output values.
-    # Change it to match the actual expected output of your module:
     assert dut.uo_out.value == int('01001101', 2) #
